@@ -83,7 +83,10 @@ ps
 }
 
 Compilar() {
-echo "Estamos trabajando en ello, vuelve a intentarlo luego"
+echo "Compilar el Kernel requiere ejecutar este script con privilegios de root"
+echo ""
+cd /usr/src/linux
+make
 }
 
 #------------------------{ Programa Principal }-----------------------------------------

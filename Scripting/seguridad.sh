@@ -56,6 +56,11 @@ Line() {
 Listen_ports() {
 netstat -plunt
 }
+
+Active_conections() {
+netstat -nt
+}
+
 #------------------------{ Programa Principal }-----------------------------------------
 while ((TST>0));
 do

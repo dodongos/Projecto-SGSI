@@ -61,6 +61,28 @@ Active_conections() {
 netstat -nt
 }
 
+CPU() {
+top -b -n 1
+}
+
+Kernel_Tuning() {
+kmod list
+}
+
+Log_check() {
+dmesg
+}
+
+Audit_control () {
+cat /var/log/auth.log
+}
+
+Service_Control () {
+ps
+}
+
+
+
 #------------------------{ Programa Principal }-----------------------------------------
 while ((TST>0));
 do
@@ -80,8 +102,7 @@ read input
             Log_check
             Audit_control	;;
         6)  echo "Control de Servicios"
-            Service_Control
-            Xinetd_srv_control  ;;
+            Service_Control	;;
         7)  echo "Todas las opciones"
             Listen_ports
             Active_conections
@@ -89,8 +110,7 @@ read input
             Kernel_Tuning
             Log_check
             Audit_control
-            Service_Control
-            Xinetd_srv_control  ;;
+            Service_Control	;;
         8)  exit 0                      ;;
         *)  echo "Opción desconocida... "
                                 ;;

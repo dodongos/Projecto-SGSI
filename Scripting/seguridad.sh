@@ -26,8 +26,9 @@ cat <<_EOF
             |   4. Seguridad del Kernel         |
             |   5. Control de auditoría y Logs  |
             |   6. Control de Servicios         |
-            |   7. Todos los anteriores         |
-            |   8. Exit                         |
+            |   7. Compilar el Kernel           |
+            |   8. Todos los anteriores         |
+            |   9. Exit                         |
             -------------------------------------
 ##############################################################                                             
 
@@ -81,7 +82,9 @@ Service_Control () {
 ps
 }
 
-
+Compilar() {
+echo "Estamos trabajando en ello, vuelve a intentarlo luego"
+}
 
 #------------------------{ Programa Principal }-----------------------------------------
 while ((TST>0));
@@ -103,7 +106,9 @@ read input
             Audit_control	;;
         6)  echo "Control de Servicios"
             Service_Control	;;
-        7)  echo "Todas las opciones"
+	7)  echo "Compilar el Kernel"
+	    Compilar		;;
+        8)  echo "Todas las opciones"
             Listen_ports
             Active_conections
             CPU
@@ -111,7 +116,7 @@ read input
             Log_check
             Audit_control
             Service_Control	;;
-        8)  exit 0                      ;;
+        9)  exit 0                      ;;
         *)  echo "Opción desconocida... "
                                 ;;
     esac

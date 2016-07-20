@@ -53,7 +53,9 @@ Line() {
         done
 }
 
-
+Listen_ports() {
+netstat -plunt
+}
 #------------------------{ Programa Principal }-----------------------------------------
 while ((TST>0));
 do
@@ -61,37 +63,31 @@ Show_menu
 read input
     case $input in
 
-        1)  echo  "Select SSH"
-            SSH_Security_check  ;;
-        2)  echo  "TCP Wrapper"
-            TCPWrapper_check    ;;
-        3)  echo  "FileSystem Security Check"
-            FileSystemChecks    ;;
-        4)  echo  "Kernel Level Security"
+        1)  echo  "Puertos escuchando"
+            Listen_ports  ;;
+        2)  echo  "Conexiones activas"
+            Active_conections    ;;
+        3)  echo  "Uso de CPU"
+            CPU    ;;
+        4)  echo  "Seguridad del Kernel"
             Kernel_Tuning       ;;
-        5)  echo  "Log & audit control"
+        5)  echo  "Control de Auditoría y Logs"
             Log_check
-            Audit_control
-            User_Set_Perm
-            Disable_user
-            Disable_Group       ;;
-        6)  echo "Service Control"
+            Audit_control	;;
+        6)  echo "Control de Servicios"
             Service_Control
             Xinetd_srv_control  ;;
-        7)  echo "Selected All Options"
-            SSH_Security_check
-            TCPWrapper_check
-            FileSystemChecks
+        7)  echo "Todas las opciones"
+            Listen_ports
+            Active_conections
+            CPU
             Kernel_Tuning
             Log_check
             Audit_control
-            User_Set_Perm
-            Disable_user
-            Disable_Group
             Service_Control
             Xinetd_srv_control  ;;
         8)  exit 0                      ;;
-        *)  echo "unknown Options... "
+        *)  echo "Opción desconocida... "
                                 ;;
     esac
 Sub_menu
